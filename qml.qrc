@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>innlogging.qml</file>
+        <file>nedlast.qml</file>
+        <file>gk.png</file>
+        <file>info.qml</file>
+        <file>menu.png</file>
+        <file>logout.png</file>
+    </qresource>
+</RCC>
