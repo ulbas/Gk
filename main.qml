@@ -12,7 +12,7 @@ ApplicationWindow {
     width: 980
     height: 800
     color:"#B6CAB4"
-    title: qsTr("GK Program")
+    title: qsTr("GK PROGRAM")
     id: root
 
 
@@ -32,7 +32,7 @@ ApplicationWindow {
             MenuSeparator {visible: true }
             MenuItem { text: "Info"; onTriggered:view.currentIndex=2}
             MenuSeparator {visible: true }
-            MenuItem { text: "Avslutt"; onTriggered: Qt.quit()}
+            MenuItem { text: "Avslutt"; onTriggered: Qt.quit(); iconSource:  "qrc:logout.png"}
         }
 
 
@@ -64,7 +64,7 @@ ApplicationWindow {
                     font.wordSpacing: 10
                     text: styleData.text
                     font.pixelSize: 20
-                    font.family: "geneva"
+                    font.family: "Segoe UI Black"
                     font.bold:true
                     font.underline: true
                 }

@@ -19,14 +19,14 @@ Rectangle{
         height: parent/10
     }
     DropShadow {
-            anchors.fill: image1
-            horizontalOffset: 5
-            verticalOffset: 4
-            radius: 9.0
-            samples: 17
-            color: "#80000000"
-            source: image1
-        }
+        anchors.fill: image1
+        horizontalOffset: 5
+        verticalOffset: 4
+        radius: 9.0
+        samples: 17
+        color: "#80000000"
+        source: image1
+    }
     Column{
         spacing:40
         anchors.horizontalCenter: parent.horizontalCenter
@@ -50,6 +50,7 @@ Rectangle{
                 Keys.onEnterPressed:buttonlog.clicked()
                 anchors.centerIn: parent
                 text:"Brukernavn"
+                font.family: "calibri"
                 onFocusChanged: {
                     if(focus && username.text== "Brukernavn")
                         username.text = ""
@@ -77,6 +78,7 @@ Rectangle{
                 Keys.onEnterPressed:buttonlog.clicked()
                 anchors.centerIn: parent
                 text: "Passord"
+                font.family: "calibri"
                 echoMode: TextInput.Password
 
 
@@ -96,7 +98,21 @@ Rectangle{
             color: "#B6CAB4"
             Button{
                 id:buttonlog
+                width:parent.width
+                height: parent.height
                 style:ButtonStyle{
+                    label: Component{
+                        Text{
+                            text:"Logg inn"
+                            color:"black"
+                            font.family: "candara"
+                            //font.bold:true
+                            font.pixelSize: 14
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+
+                        }
+                    }
                     background: Rectangle{
                         border.width: 2
                         color: "#B6CAB4"
@@ -108,48 +124,80 @@ Rectangle{
                         }
                     }
                 }
-                anchors.fill:parent
+
                 Keys.onReturnPressed:clicked()
                 Keys.onEnterPressed:clicked()
-                text:"Logg inn"
+
                 onClicked: {
 
-                    if (username.text == "Admin" && password.text == "Admin")
-                        view.currentIndex=1
+                    /*if (username.text == "Admin" && password.text == "Admin")
+                        view.currentIndex=1*/
+                    if (username.text == "Brukernavn" && password.text == "Passord")
+                        view.currentIndex = 1
                     else if(username.text !="Admin" && password.text != "Admin")
-                        warning.stateVisible=true
+                        warning.visible=true
+
                 }
             }
-            Rectangle{
-                id:warning
-                anchors.top:knapp.bottom
-                anchors.topMargin:30
-                anchors.horizontalCenter: parent.horizontalCenter
-                visible: stateVisible
-                width: 250
-                height: 50
-                color: "white"
-                border.color: "darkgrey"
-                border.width: 2
-                property bool stateVisible: false
-                states: [
-                    State { when: stateVisible;
-                        PropertyChanges {   target: warning; opacity: 1.0    }
-                    },
-                    State { when: !stateVisible;
-                        PropertyChanges {   target: warning; opacity: 0.0    }
+
+        }
+    }
+    Rectangle{
+        id:warning
+
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top:parent.top
+        anchors.topMargin: 400
+        visible: false
+        width: 250
+        height: 100
+        radius:5
+        color: "#a8c0a5"
+        border.color: "#5C5E5C"
+        border.width: 1.5
+
+        Button{
+            anchors.right:parent.right
+            anchors.rightMargin: 4
+            anchors.top:parent.top
+            anchors.topMargin: 5
+
+            height: 25
+            width: 25
+            style:ButtonStyle{
+                label: Component{
+                    Text{
+                        text:"X"
+                        color:"black"
+                        font.family: "areal"
+                        font.bold:true
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors.fill:parent
                     }
-                ]
-                transitions: Transition {
-                    NumberAnimation { property: "opacity"; target: warning; duration: 500}
                 }
-                TextEdit{
-                    anchors.centerIn: parent
-                    font.pixelSize: 12
-                    readOnly: true
-                    text:"Feil brukernavn eller passord, prøv igjen"
+                background: Rectangle{
+                    border.width: 1
+                    color: "transparent"
+                    border.color: "transparent"
+                    //color: "#B6CAB4"
+                    //border.color: "#888"
+                    radius: 5
+                    gradient: Gradient {
+                        GradientStop { position: 0 ; color: control.pressed ? "#ccc" : "#eee" }
+                        GradientStop { position: 1 ; color: control.pressed ? "#aaa" : "#ccc" }
+                    }
                 }
             }
+
+            onClicked:{
+                warning.visible=false
+            }
+        }
+        TextEdit{
+            anchors.centerIn: parent
+            font.pixelSize: 12
+            readOnly: true
+            text:"Feil brukernavn eller passord.\n\n            Prøv igjen!"
         }
     }
 }
