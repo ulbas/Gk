@@ -66,7 +66,7 @@ ApplicationWindow {
                     font.pixelSize: 20
                     font.family: "Segoe UI Black"
                     font.bold:true
-                    font.underline: true
+                    //font.underline: true
                 }
             }
 
@@ -145,6 +145,7 @@ ApplicationWindow {
         anchors.top:parent.top
         anchors.topMargin: 30
         anchors.rightMargin: 30
+        smooth: true
         visible: (view.currentIndex==0)?false:true
         source: "gk.png"
         width: 60

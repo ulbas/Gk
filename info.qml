@@ -161,6 +161,7 @@ Rectangle {
                     anchors.topMargin: 10
                     font.pixelSize: 20
                     font.family: "Tahoma"
+                    readOnly: true
                     font.letterSpacing: 2
                     //font.underline: true
                     font.bold:true
@@ -170,12 +171,14 @@ Rectangle {
                     id:infotext
                     anchors.top:titel.bottom
                     anchors.topMargin: 50
+                    readOnly: true
                     anchors.left: parent.left
-                    anchors.leftMargin: 100
+                    anchors.leftMargin: 70
                     font.family: "Candara"
                     font.letterSpacing: 1
-                    font.pixelSize: 13
-                    text:"Her skal det stå litt tekst om hvordan siden \nskal fungere og hva brukeren må gjøre for å \nfå lastet ned programmet riktig"
+                    font.bold: true
+                    font.pixelSize: 18
+                    text:"Dette programmet skal la montører laste opp program på nodene.\n\nDet man trenger for å laste opp filer til noden er:\n\n\n                         * Micro USB\n\n                         * Oppdatert node program\n\n                         * Riktig noder"
                     wrapMode: "WordWrap"
                 }
 
@@ -193,22 +196,25 @@ Rectangle {
                     anchors.leftMargin: 15
                     anchors.topMargin: 10
                     font.pixelSize: 20
+                    readOnly: true
                     font.family: "Tahoma"
                     font.letterSpacing: 2
                     //font.underline: true
                     font.bold:true
-                    text:"FILER:"
+                    text:"LASTE INN FIL TIL NODER:"
                 }
                 TextEdit{
                     id:filertext
                     anchors.top:file.bottom
                     anchors.topMargin: 50
+                    readOnly: true
                     anchors.left: parent.left
-                    anchors.leftMargin: 100
+                    anchors.leftMargin: 70
                     font.family: "Candara"
                     font.letterSpacing: 1
-                    font.pixelSize: 13
-                    text:"Her skal det stå litt tekst om filer, hva de inneholder osv."
+                    font.pixelSize: 18
+                    font.bold: true
+                    text:"Når du skal laste inn filer til noden så er det\nen sjekkliste på ting som må gjøres:\n\n\n             *   Gi noden unik id (EKS:2-255, da sentralen er 1)\n\n             *   Velg ønsket fil du ønsker å laste inn\n\n             *   Plugg inn micro USB mellom datamaskin og noden\n\n             *   Trykk last ned knappen"
                     wrapMode: "WordWrap"
                 }
 
@@ -226,6 +232,7 @@ Rectangle {
                     anchors.leftMargin: 15
                     anchors.topMargin: 10
                     font.pixelSize: 20
+                    readOnly: true
                     font.family: "Tahoma"
                     font.letterSpacing: 2
                     //font.underline: true
@@ -239,6 +246,7 @@ Rectangle {
                     anchors.topMargin: 50
                     anchors.left: parent.left
                     anchors.leftMargin: 100
+                    readOnly: true
                     font.family: "Candara"
                     font.letterSpacing: 1
                     font.pixelSize:13

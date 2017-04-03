@@ -3,11 +3,14 @@ import QtQuick.Controls 1.4
 import QtQuick 2.5
 import QtGraphicalEffects 1.0
 import QtQuick.Controls.Styles 1.4
+
 Rectangle{
     width: 600
     height: 600
     color: "transparent"
 
+    property string color1 :"#87BE28"
+    property string color2 :"#70A528"
 
     Image{
         id:image1
@@ -95,7 +98,7 @@ Rectangle{
             width: 150
             height: 40
             anchors.horizontalCenter: parent.horizontalCenter
-            color: "#B6CAB4"
+            color: color1
             Button{
                 id:buttonlog
                 width:parent.width
@@ -115,7 +118,7 @@ Rectangle{
                     }
                     background: Rectangle{
                         border.width: 2
-                        color: "#B6CAB4"
+                        color: color2
                         border.color: "#888"
                         radius: 4
                         gradient: Gradient {
@@ -152,7 +155,7 @@ Rectangle{
         width: 250
         height: 100
         radius:5
-        color: "#a8c0a5"
+        color: color1
         border.color: "#5C5E5C"
         border.width: 1.5
 
