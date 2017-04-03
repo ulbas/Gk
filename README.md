@@ -1,5 +1,5 @@
 ![myimage-alt-tag](https://github.com/ulbas/Gk/blob/master/gk.png)
-## Bacheloroppgave for GK 
+## BACHELOROPPGAVE FOR GK
 
 ### Elektronikk og informasjonsteknologi våren 2017
 
